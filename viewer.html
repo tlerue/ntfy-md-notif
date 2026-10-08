@@ -1,5 +1,26 @@
 <!doctype html>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-Chargement…
-<script> const u = new URLSearchParams(location.search).get("url"); fetch(u).then(r => r.text()).then(t => c.innerHTML = marked.parse(t)) .catch(e => c.textContent = "Erreur : " + e); </script>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viewer</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+</head>
+<body style="max-width:800px;margin:auto;padding:1rem;font-family:sans-serif">
+<div id="c">Chargement…</div>
+<script>
+const out = document.getElementById("c");
+const u = new URLSearchParams(location.search).get("url");
+if (!u) {
+  out.textContent = "Paramètre url manquant";
+} else if (typeof marked === "undefined") {
+  out.textContent = "marked non chargé (CDN bloqué ?)";
+} else {
+  fetch(u)
+    .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+    .then(t => { out.innerHTML = marked.parse(t); })
+    .catch(e => { out.textContent = "Erreur : " + e.message; });
+}
+</script>
+</body>
+</html>
