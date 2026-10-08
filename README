@@ -1,0 +1,4 @@
+Variantes sans hébergement
+
+Fichier dans un dépôt GitHub : Click: https://github.com/user/repo/blob/main/fichier.md (GitHub rend le Markdown).
+Pièce jointe uploadée sur ntfy (-T fichier.md) : passez son URL de pièce jointe dans ?url=. Le viewer doit pouvoir la récupérer (CORS), à tester ; sinon, hébergez le .md ailleurs.
