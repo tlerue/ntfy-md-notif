@@ -3,23 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Viewer</title>
+<title>Rapport — Le Drivé Tout Nu</title>
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+  body {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    background: #f9fafb;
+  }
+  .header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .header h1 { margin: 0; font-size: 1.5rem; }
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    flex-wrap: wrap;
+  }
+  .url-display {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #075985;
+  }
+  .url-display a {
+    color: #0284c7;
+    text-decoration: none;
+  }
+  .url-display a:hover {
+    text-decoration: underline;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .btn-copy {
+    background: #3498db;
+    color: white;
+  }
+  .btn-copy:hover { background: #2980b9; }
+  .btn-open {
+    background: #27ae60;
+    color: white;
+  }
+  .btn-open:hover { background: #219a52; }
+  #c { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  #c h1, #c h2, #c h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
+  #c table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  #c th, #c td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+  #c th { background: #f4f4f4; }
+  #c pre { background: #f4f4f4; padding: 0.75rem; border-radius: 6px; overflow-x: auto; }
+  .status {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .status.error { background: #fdeaea; color: #c92a2a; }
+  .status.loading { background: #f0f9ff; color: #075985; }
+</style>
 </head>
-<body style="max-width:800px;margin:auto;padding:1rem;font-family:sans-serif">
-<div id="c">Chargement…</div>
+<body>
+<div class="header">
+  <h1>📊 Rapport du jour</h1>
+  <div id="urlDisplay" class="url-display" style="display:none">
+    <a id="urlLink" href="#">Lien</a>
+  </div>
+  <div id="actions" class="actions" style="display:none">
+    <button class="btn btn-copy" onclick="copyLink()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copier le lien
+    </button>
+    <a class="btn btn-open" id="openBtn" href="#" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      Ouvrir le lien
+    </a>
+  </div>
+</div>
+<div id="c" class="status loading">Chargement…</div>
+
 <script>
 const out = document.getElementById("c");
+const actions = document.getElementById("actions");
+const urlDisplay = document.getElementById("urlDisplay");
+const openBtn = document.getElementById("openBtn");
+const urlLink = document.getElementById("urlLink");
+
 const u = new URLSearchParams(location.search).get("url");
+
 if (!u) {
-  out.textContent = "Paramètre url manquant";
+  out.innerHTML = '<div class="status error">⚠️ Paramètre url manquant</div>';
 } else if (typeof marked === "undefined") {
-  out.textContent = "marked non chargé (CDN bloqué ?)";
+  out.innerHTML = '<div class="status error">⚠️ marked non chargé (CDN bloqué ?)</div>';
 } else {
   fetch(u)
     .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
-    .then(t => { out.innerHTML = marked.parse(t); })
-    .catch(e => { out.textContent = "Erreur : " + e.message; });
+    .then(t => { 
+      out.innerHTML = marked.parse(t);
+      out.className = ""; // Remove status classes
+      const currentUrl = window.location.href;
+      actions.style.display = "flex";
+      urlDisplay.style.display = "block";
+      urlLink.href = currentUrl;
+      urlLink.textContent = currentUrl;
+      openBtn.href = currentUrl;
+    })
+    .catch(e => { 
+      out.innerHTML = '<div class="status error">⚠️ Erreur : ' + e.message + '</div>'; 
+    });
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.querySelector(".btn-copy");
+    const original = btn.innerHTML;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copié !';
+    setTimeout(() => { btn.innerHTML = original; }, 2000);
+  }).catch(() => {
+    alert("Impossible de copier le lien");
+  });
 }
 </script>
 </body>
