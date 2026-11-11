@@ -137,6 +137,30 @@
     "id": "recette_00-curry-coco-butternut-pommes-de-terre-la-coriandre"
   },
   {
+    "title": "Curry coco Pak Choi & betterave rôtie",
+    "type": "plat",
+    "preparationTime": "10 min",
+    "cookingTime": "35 min",
+    "description": "Fusion originale entre curry indien et légumes d'hiver : pak choï fondant, betterave rôtie au miel d'ail noir et noix de cajou croquantes.",
+    "ingredients": [
+      "1 pièce (environ 400g) chou chinois Pak Choï BIO",
+      "1 pièce (200g) Betterave BIO",
+      "1/2 tête Ail Noir Tête BIO",
+      "200 ml lait de coco light",
+      "1 c.à.s curry en poudre",
+      "30 g noix de cajou grillées salées",
+      "1 cube bouillon de volaille cube",
+      "1 c.à.s huile d'olive",
+      "1 c.à.c miel (facultatif)"
+    ],
+    "preparation": "1. Préchauffer le four à 200°C. Éplucher la betterave, la couper en quartiers de 1 cm d'épaisseur. Mélanger avec 1/2 gousse d'ail noir écrasé, 1 c.à.s d'huile d'olive, une pincée de sel et 1/2 c.à.c de miel. Disposer sur une plaque recouverte de papier sulfurisé et enfourner 25 min.\n2. Pendant ce temps, hacher finement l'autre moitié de l'ail noir au Magimix. Réserver.\n3. Laver le pak choï, couper les tiges en morceaux de 3 cm et les feuilles en lanières. Dans une sauteuse, faire revenir les tiges 3 min avec 1 c.à.s d'huile d'olive. Ajouter le curry, l'ail noir haché, le bouillon cube délayé dans 100 ml d'eau, puis le lait de coco. Porter à ébullition.\n4. Ajouter les feuilles de pak choï, couvrir et laisser mijoter 5 min à feu doux.\n5. Sortir la betterave du four, saupoudrer de noix de cajou concassées. Servir le pak choï curry avec les betteraves rôties en accompagnement.\n\n**Outils** : magimix, four\n\n---\n*Recette générée automatiquement par l'agent LLM v2* | 📅 2026-11-08",
+    "tools": [
+      "magimix",
+      "four"
+    ],
+    "id": "recette_00-curry-coco-pak-choi-betterave-r-tie"
+  },
+  {
     "title": "Curry doux de butternut, navet violet et raisin blanc",
     "type": "plat",
     "preparationTime": "12 min",
@@ -921,6 +945,27 @@
     "id": "recette_01-velout-de-chou-romanesco-et-betterave-l-ail-noir"
   },
   {
+    "title": "Velouté de chou romanesco & poireau aux épices douces",
+    "type": "soupe",
+    "preparationTime": "8 min",
+    "cookingTime": "30 min",
+    "description": "Réinvention d’un velouté d’hiver : chou romanesco cuit à la vapeur, mixé avec poireau et une touche de coriandre en poudre pour une note subtilement anisée.",
+    "ingredients": [
+      "1 pièce (300g) Chou Romanesco BIO",
+      "1 botte (100g) Oignon Cébette/Ciboule BIO",
+      "2 gousses Ail blanc frais BIO",
+      "1 cube bouillon de volaille cube",
+      "1/2 c.à.c coriandre en poudre",
+      "1 c.à.s huile d'olive",
+      "2 c.à.s crème fraîche allégée"
+    ],
+    "preparation": "1. Couper le chou romanesco en petits fleurons. Laver et émincer finement les tiges et feuilles de ciboulette. Écraser les 2 gousses d’ail au presse-ail.\n2. Dans le bol du Magimix, placer les fleurons de chou, l’ail, la ciboulette émincée, le cube de bouillon, 300 ml d’eau, et 1/2 c.à.c de coriandre en poudre. Mixer 1 min vitesse 8.\n3. Transvaser dans une casserole, porter à ébullition, puis cuire à feu doux couvert pendant 20 min.\n4. Mixez de nouveau 30 secondes vitesse 6 pour obtenir une texture lisse et onctueuse.\n5. Servir chaud avec un filet d’huile d’olive et 1 c.à.s de crème fraîche allégée saupoudrée de ciboulette hachée réservée.\n\n**Outils** : magimix\n\n---\n*Recette générée automatiquement par l'agent LLM v2* | 📅 2026-11-08",
+    "tools": [
+      "magimix"
+    ],
+    "id": "recette_01-velout-de-chou-romanesco-poireau-aux-pices-douces"
+  },
+  {
     "title": "Velouté de courge spaghetti et betterave (non disponible) → remplacé par navet violet + citron vert",
     "type": "soupe",
     "preparationTime": "10 min",
@@ -1298,6 +1343,29 @@
       "four"
     ],
     "id": "recette_02-gratin-de-pommes-de-terre-agria-betterave-et-chou-"
+  },
+  {
+    "title": "Gratin de pommes de terre Agria & fenouil au parmesan et gingembre",
+    "type": "gratin",
+    "preparationTime": "12 min",
+    "cookingTime": "40 min",
+    "description": "Gratin revisitée : pommes de terre Agria fondantes, fenouil rôti au miel et gingembre frais râpé, gratiné avec parmesan et chapelure.",
+    "ingredients": [
+      "500 g Pommes de terre conso Agria",
+      "1 pièce (300g) Fenouil BIO",
+      "1/2 pièce Oignon jaune BIO",
+      "50 g parmesan râpé",
+      "1 morceau (10g) gingembre frais",
+      "2 c.à.s huile d'olive",
+      "1 cube bouillon de volaille cube",
+      "1 c.à.s farine"
+    ],
+    "preparation": "1. Préchauffer le four à 190°C. Laver et éplucher le fenouil, le couper en lamelles de 3 mm. Éplucher et râper le gingembre. Hacher finement l’oignon au Magimix.\n2. Dans une poêle, faire revenir l’oignon haché avec 1 c.à.s d’huile d’olive 5 min. Ajouter le fenouil, 1/2 cube de bouillon délayé dans 50 ml d’eau, le gingembre râpé et 1 c.à.c de miel. Cuire 10 min à couvert à feu doux.\n3. Éplucher et couper les pommes de terre en rondelles de 4 mm (ou utiliser la lame à râper fine du Magimix).\n4. Dans un plat à gratin, alterner couches de pommes de terre et fenouil. Saupoudrer chaque couche de parmesan et d’un peu de farine. Verser le reste d’huile d’olive et le cube de bouillon restant dilué dans 100 ml d’eau.\n5. Enfourner 35 min. Puis passer en mode grill 2 min pour dorer le dessus. Laisser reposer 5 min avant de servir.\n\n**Outils** : magimix, four\n\n---\n*Recette générée automatiquement par l'agent LLM v2* | 📅 2026-11-08",
+    "tools": [
+      "magimix",
+      "four"
+    ],
+    "id": "recette_02-gratin-de-pommes-de-terre-agria-fenouil-au-parmesa"
   },
   {
     "title": "Gratin de pommes de terre Agria, fenouil et prune Reine Claude — croquant de parmesan",
